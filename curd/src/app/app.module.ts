@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule} from '@angular/forms'
 
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
@@ -30,7 +31,9 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,  
+    BrowserAnimationsModule, 
+    ReactiveFormsModule,
+    
     MatInputModule,
     MatButtonModule,
     MatBadgeModule,
