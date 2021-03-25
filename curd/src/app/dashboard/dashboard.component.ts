@@ -34,7 +34,7 @@ export class DashboardComponent implements OnInit {
           element.email.toLowerCase().includes(val.toLowerCase()) 
         )
         {
-          filterlist.push(element);
+          filterlist.push(element);//push data
          }
       });
       this.uiContactList = filterlist; //both are matches
