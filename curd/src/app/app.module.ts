@@ -1,6 +1,8 @@
+import { environment } from './../environments/environment';
+import { InMemoryDataService } from './in-memory-data.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule} from '@angular/forms'
+import { FormsModule, ReactiveFormsModule} from '@angular/forms'
 
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
@@ -16,6 +18,8 @@ import { UpdateComponent } from './update/update.component';
 import { DeleteComponent } from './delete/delete.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 @NgModule({
   declarations: [
@@ -33,11 +37,15 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
     AppRoutingModule,
     BrowserAnimationsModule, 
     ReactiveFormsModule,
+    HttpClientModule,
+    FormsModule,
     
     MatInputModule,
     MatButtonModule,
     MatBadgeModule,
     MatIconModule,
+  // if production build then pass empty array otherwise HttpClientInMemoryWebApiModule
+    environment.production ? [] : HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService)
   ],
   
   providers: [],
