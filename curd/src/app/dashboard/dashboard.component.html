@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-md-1">
-        <button [matBadge]="5" matBadgePosition="after" matBadgeColor="accent"
+        <button [matBadge]="uiContactList?.length" matBadgePosition="after" matBadgeColor="accent"
             class="noOutlinebutton" mat-raised-button color="primary" [routerLink]="[ '/add']">
             <mat-icon>add</mat-icon>
         </button>
@@ -8,22 +8,22 @@
     <div class="col-md-1">
         <mat-form-field class="example-full-width">
             <mat-label>Search</mat-label>
-            <input matInput placeholder="Search Contact" #name>
+            <input matInput placeholder="Search Contact" #name (input)="SearchChanges(name.value)">
             <mat-icon matSuffix>search</mat-icon>
         </mat-form-field>
     </div>
 </div>
 <div class="row">
-    <div class="card" style="width: 18rem; margin: 21px;">
+    <div class="card" style="width: 18rem; margin: 21px;" *ngFor="let item of uiContactList">
         <div class="card-body">
-            <h2>Shweta</h2>
-            <h4> 490999</h4>
-            <h4>sh@gmail.com</h4>
-            <button class="noOutlinebutton" mat-mini-fab color="accent" aria-label="Example icon button with a delete icon" [routerLink]="[ '/delete',1]">
+            <h2>{{item.name}}</h2>
+            <h4>{{item.contactNo}}</h4>
+            <h4>{{item.email}}</h4>
+            <button class="noOutlinebutton" mat-mini-fab color="accent" aria-label="Example icon button with a delete icon" [routerLink]="[ '/delete',item.id]">
                 <mat-icon>delete</mat-icon>
             </button> 
             <span>  |  </span>
-            <button class="noOutlinebutton" mat-mini-fab color="accent" aria-label="Example icon button with a delete icon" [routerLink]="[ '/update',1]">
+            <button class="noOutlinebutton" mat-mini-fab color="accent" aria-label="Example icon button with a delete icon" [routerLink]="[ '/update',item.id]">
                 <mat-icon>edit</mat-icon>
             </button>
         </div>
