@@ -1,0 +1,23 @@
+<form class="example-form">
+    <mat-form-field class="example-full-width">
+        <mat-label>Name</mat-label>
+        <input matInput>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width">
+        <mat-label>ContactNo</mat-label>
+        <input matInput>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width">
+        <mat-label>Email</mat-label>
+        <input matInput>
+    </mat-form-field>
+</form>
+
+<button class="noOutlinebutton" mat-raised-button color="primary"[routerLink]="['/dashboard']">
+    <mat-icon>keyboard_backspace</mat-icon>
+</button> |
+<button class="noOutlinebutton" mat-raised-button color="accent">
+    <mat-icon>person_add</mat-icon>Add Contact
+</button>
